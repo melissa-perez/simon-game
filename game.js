@@ -3,10 +3,16 @@ let gamePattern = []
 
 let randomNumber = nextSequence(); 
 let randomChosenColor = buttonColors[randomNumber];
-
+console.log(randomChosenColor)
 gamePattern.push(randomChosenColor);
+console.log(("hello"));
 
-console.log(gamePattern);
+$(document).click(function(event) {
+    $(".red").css("background-color", "yellow");
+});
+
+
+
 
 
 //Game functions

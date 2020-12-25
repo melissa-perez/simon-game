@@ -1,0 +1,78 @@
+.gameDirections {
+    text-align: center;
+    font-size: 5em;
+    font-family: 'Pacifico', cursive;
+}
+
+body{
+    overflow: hidden;
+}
+
+.simon-board{
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background-color: black;  
+    position: relative;
+    margin: 0 auto;
+}
+
+.simon-board-center{   
+    width: 300px;
+    height: 300px;
+    border-style: ridge;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#simon-text {
+    font-family: 'Nova Flat', cursive;
+    color: white;
+    font-size: 4em;
+    font-weight: bold;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.button {
+    border-radius: 10px 160px 10px 100px ;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+}
+
+.red {
+    background-color: red;
+    top: 0;
+    right: 0;
+}
+
+.blue {
+    background-color: blue;
+    top: 0;
+    left: 0;
+}
+
+.yellow {
+    background-color: yellow;
+    bottom: 0;
+    left: 0;
+}
+
+.green {
+    background-color: green;
+    bottom: 0;
+    right: 0;
+}
+/*.simon-board-placement {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+*/
