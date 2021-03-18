@@ -1,22 +1,127 @@
 const buttonColors = ["red", "blue", "green", "yellow"];
-let gamePattern = []
+let gamePattern = [];
+let userClickedPattern = [];
+let userChosenColor = null;
+let started = false;
+let level = 0;
 
-let randomNumber = nextSequence(); 
-let randomChosenColor = buttonColors[randomNumber];
-console.log(randomChosenColor)
-gamePattern.push(randomChosenColor);
-console.log(("hello"));
+$(document).on("keydown", function() {
+    if (!started){
+        started = true;
+        nextSequence();
+        $(".gameDirections").text("Level " + level);
+        }
+})
 
-$(document).click(function(event) {
-    $(".red").css("background-color", "yellow");
+
+$("#red").on("click",function() {
+    userChosenColor = this.id;
+    userClickedPattern.push(userChosenColor);
+    playSound(userChosenColor);
+    animatePress(userChosenColor);
+    checkAnswer(userClickedPattern[userClickedPattern.length - 1]);
+});
+$("#yellow").on("click",function() {
+    userChosenColor = this.id;
+    userClickedPattern.push(userChosenColor);
+    playSound(userChosenColor);
+    animatePress(userChosenColor);
+    checkAnswer(userClickedPattern[userClickedPattern.length - 1]);
+
+});
+$("#green").on("click",function() {
+    userChosenColor = this.id;
+    userClickedPattern.push(userChosenColor);
+    playSound(userChosenColor);
+    animatePress(userChosenColor);
+    checkAnswer(userClickedPattern[userClickedPattern.length - 1]);
+
+});
+$("#blue").on("click",function() {
+    userChosenColor = this.id;
+    userClickedPattern.push(userChosenColor);
+    playSound(userChosenColor);
+    animatePress(userChosenColor);
+    checkAnswer(userClickedPattern[userClickedPattern.length - 1]);
 });
 
 
 
-
-
 //Game functions
-
+/**
+ * Generates a random number to choose the next color in sequence.
+ * Stores the result in gamePattern.
+ * @param {none} No params.
+ * @return {none} No return value.
+ */
 function nextSequence() {
-    return Math.floor((Math.random() * 4));;
+    let randomNumber = Math.floor((Math.random() * 4));
+    let randomChosenColor = buttonColors[randomNumber];
+    ++level;
+    $(".gameDirections").text("Level " + level);
+    playSound(randomChosenColor);
+    animatePress(randomChosenColor);
+    gamePattern.push(randomChosenColor);
+}
+
+/**
+ * Resets the game variables to default values.
+ * @param {none} No params.
+ * @return {none} No return value.
+ */
+function startOver() {
+    gamePattern = [];
+    started = false;
+    level = 0;
+}
+
+/**
+ * Plays the associated sound related to the button color.
+ *
+ * @param {string} The color of the button clicked.
+ * @return {none} No return value.
+ */
+function playSound(name) {
+    let audio = new Audio("./sounds/" +
+     name + ".mp3");
+    audio.play();
+}
+
+/**
+ * Animates the current button by applying/removing a class.
+ *
+ * @param {string} The color of the button clicked.
+ * @return {none} No return value.
+ */
+function animatePress(currentColor) {
+    $("#" + currentColor).addClass("pressed");
+    setTimeout(function() {
+        $("#" + currentColor).removeClass("pressed"),
+        1000
+    });    
+}
+
+function checkAnswer(currentLevel) {
+    if(currentLevel === gamePattern[gamePattern.length - 1]){
+        console.log("success");
+        if(gamePattern.length - 1 === userClickedPattern.length - 1) {
+            setTimeout(function() {
+                nextSequence(), 1000
+            }); 
+            
+        }
+        userClickedPattern = [];
+    } else{
+        playSound("wrong"); 
+        $("body").addClass("game-over");
+    setTimeout(function() {
+        $("body" ).removeClass("game-over"),
+        200
+    });
+    $(".gameDirections").text("Game Over, Press Any Key to Restart");   
+    startOver();
+    }
+    console.log(userClickedPattern.length - 1);
+    console.log(gamePattern.length - 1 );
+    
 }

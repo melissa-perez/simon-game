@@ -1,11 +1,26 @@
-.gameDirections {
+body{
     text-align: center;
-    font-size: 5em;
-    font-family: 'Pacifico', cursive;
+    overflow: hidden;
+    background-color: #65d6ce;
 }
 
-body{
-    overflow: hidden;
+.game-over {
+    background-color: red;
+    opacity: 0.8;
+}
+
+
+.pressed {
+    box-shadow: 0 0 20px white;
+    background-color: grey;
+}
+
+.gameDirections {
+    font-size: 3em;
+    font-family: 'Bangers', cursive;
+    letter-spacing: 5px;
+    color: #ffe9d6;
+    text-shadow: 2px 2px black;
 }
 
 .simon-board{
@@ -15,6 +30,7 @@ body{
     background-color: black;  
     position: relative;
     margin: 0 auto;
+    z-index: 1;
 }
 
 .simon-board-center{   
@@ -26,6 +42,7 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    z-index: 3;
 }
 
 #simon-text {
@@ -37,6 +54,8 @@ body{
     top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
+    z-index: 4;
+
 }
 
 .button {
@@ -44,6 +63,8 @@ body{
     width: 200px;
     height: 200px;
     position: absolute;
+    border: 10px solid black;
+    border-radius: 20%;
 }
 
 .red {
