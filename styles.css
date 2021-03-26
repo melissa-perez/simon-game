@@ -1,99 +1,134 @@
-body{
-    text-align: center;
-    overflow: hidden;
-    background-color: #65d6ce;
+body {
+  text-align: center;
+  overflow: hidden;
+  background-color: #65d6ce;
 }
 
 .game-over {
-    background-color: red;
-    opacity: 0.8;
+  background-color: red;
+  opacity: 0.8;
 }
 
-
 .pressed {
-    box-shadow: 0 0 20px white;
-    background-color: grey;
+  background-color: grey;
 }
 
 .gameDirections {
-    font-size: 3em;
-    font-family: 'Bangers', cursive;
-    letter-spacing: 5px;
-    color: #ffe9d6;
-    text-shadow: 2px 2px black;
+  font-size: 3em;
+  font-family: "Bangers", cursive;
+  letter-spacing: 5px;
+  color: #ffe9d6;
+  text-shadow: 2px 2px black;
 }
 
-.simon-board{
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background-color: black;  
-    position: relative;
-    margin: 0 auto;
-    z-index: 1;
+.simon-board {
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background-color: black;
+  position: relative;
+  margin: 0 auto;
+  z-index: 1;
 }
 
-.simon-board-center{   
-    width: 300px;
-    height: 300px;
-    border-style: ridge;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 3;
+.simon-board-center {
+  width: 300px;
+  height: 300px;
+  border-style: ridge;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  z-index: 3;
 }
 
 #simon-text {
-    font-family: 'Nova Flat', cursive;
-    color: white;
-    font-size: 4em;
-    font-weight: bold;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: 4;
-
+  font-family: "Nova Flat", cursive;
+  color: white;
+  font-size: 4em;
+  font-weight: bold;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  text-align: center;
+  margin-top: 30px;
 }
 
 .button {
-    border-radius: 10px 160px 10px 100px ;
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    border: 10px solid black;
-    border-radius: 20%;
+  border-radius: 10px 160px 10px 100px;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  border: 10px solid black;
+  border-radius: 20%;
 }
 
 .red {
-    background-color: red;
-    top: 0;
-    right: 0;
+  background-color: red;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  width: 35%;
+  height: 200px;
+  border-radius: 10% 80% 10% 50%;
+  outline: none;
+  padding: 5%;
+  position: absolute;
 }
 
 .blue {
-    background-color: blue;
-    top: 0;
-    left: 0;
+  background-color: blue;
+  top: 0;
+  left: 0;
+  padding: 5px;
+  width: 35%;
+  height: 200px;
+  border-radius: 80% 10% 50% 10%;
+  outline: none;
+  padding: 5%;
+  position: absolute;
 }
 
 .yellow {
-    background-color: yellow;
-    bottom: 0;
-    left: 0;
+  background-color: yellow;
+  bottom: 0;
+  left: 0;
+  border-radius: 10% 50% 10% 80%;
+  outline: none;
+  padding: 5%;
+  position: absolute;
+  width: 35%;
+  height: 230px;
 }
 
 .green {
-    background-color: green;
-    bottom: 0;
-    right: 0;
+  position: absolute;
+  background-color: green;
+  bottom: 0;
+  right: 0;
+  width: 35%;
+  height: 230px;
+  border-radius: 50% 10% 80% 10%;
+  outline: none;
+  padding: 5%;
 }
-/*.simon-board-placement {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+
+.green-pressed {
+  background-image: radial-gradient(white 5%, lightgreen 15%, green 50%);
 }
-*/
+
+.red-pressed {
+  background-image: radial-gradient(white 5%, pink 15%, red 50%);
+}
+
+.blue-pressed {
+  background-image: radial-gradient(white 5%, lightblue 15%, blue 50%);
+}
+
+.yellow-pressed {
+  background-image: radial-gradient(white 5%, lightyellow 15%, yellow 50%);
+}
