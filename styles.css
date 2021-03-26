@@ -19,6 +19,7 @@ body {
   letter-spacing: 5px;
   color: #ffe9d6;
   text-shadow: 2px 2px black;
+  text-align: center;
 }
 
 .simon-board {
