@@ -71,6 +71,7 @@ function startOver() {
   gamePattern = [];
   started = false;
   level = 0;
+  userClickedPattern = [];
 }
 
 /**
@@ -98,7 +99,7 @@ function animatePress(currentColor) {
 }
 
 /**
- * Checks the user input against the pattern created.
+ * Checks the user's last input against the pattern at tje same level.
  *
  * @param {int} The last guess index of the user.
  * @return {none} No return value.
@@ -107,10 +108,7 @@ function checkAnswer(currentLevel) {
   if (!started) {
     return;
   }
-  if (
-    userClickedPattern[currentLevel] === gamePattern[gamePattern.length - 1]
-  ) {
-    console.log("success");
+  if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
     if (gamePattern.length === userClickedPattern.length) {
       setTimeout(function () {
         nextSequence();
@@ -118,7 +116,6 @@ function checkAnswer(currentLevel) {
       }, 1000);
     }
   } else {
-    console.log("wrong");
     playSound("wrong");
 
     $("body").addClass("game-over");
